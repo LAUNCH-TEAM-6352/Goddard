@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6352.robot.subsystems;
 
 import org.usfirst.frc.team6352.robot.RobotMap;
+import org.usfirst.frc.team6352.robot.commands.DriveWithJoystick;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -10,7 +11,7 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ * The subsystem that moves the robot.
  */
 public class DriveTrain extends Subsystem
 {
@@ -37,14 +38,12 @@ public class DriveTrain extends Subsystem
 	public void initDefaultCommand()
 	{
 		// Set the default command for a subsystem here.
-		// setDefaultCommand(new MySpecialCommand());
-
+		setDefaultCommand(new DriveWithJoystick());
 	}
 	
 	public void driveArcade(Joystick stick)
 	{
 		drive.arcadeDrive(stick);
-		
 	}
 	
 }

@@ -1,6 +1,9 @@
 
 package org.usfirst.frc.team6352.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.cscore.UsbCameraInfo;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Victor;
@@ -10,8 +13,9 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team6352.robot.commands.DriveWithJoystick;
+import org.usfirst.frc.team6352.robot.commands.DriveAutonomous;
 import org.usfirst.frc.team6352.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team6352.robot.subsystems.GearLift;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -20,26 +24,39 @@ import org.usfirst.frc.team6352.robot.subsystems.DriveTrain;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot{
-
+public class Robot extends IterativeRobot
+{
+	private UsbCamera usbCameras[];
+	
+	// The gear lift subsystem:
+	public static final GearLift gearLift = new GearLift();
+	
+	// The drive train:
 	public static final DriveTrain driveTrain = new DriveTrain();
+	
+	// The one instance of the OI:
 	public static OI oi;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
 	RobotDrive myRobot = new RobotDrive(new Victor(0), new Victor(1));
-	
+
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
 	@Override
-	public void robotInit() {
+	public void robotInit()
+	{
 		oi = new OI();
-		chooser.addDefault("Default Auto", new DriveWithJoystick());
+		chooser.addDefault("Default Auto", new DriveAutonomous());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+		
+		// Do not delete the following line!
+		CameraServer.getInstance();
+		initializeUsbCameras();
 	}
 
 	/**
@@ -48,12 +65,14 @@ public class Robot extends IterativeRobot{
 	 * the robot is disabled.
 	 */
 	@Override
-	public void disabledInit() {
+	public void disabledInit()
+	{
 
 	}
 
 	@Override
-	public void disabledPeriodic() {
+	public void disabledPeriodic()
+	{
 		Scheduler.getInstance().run();
 	}
 
@@ -69,7 +88,8 @@ public class Robot extends IterativeRobot{
 	 * to the switch structure below with additional strings & commands.
 	 */
 	@Override
-	public void autonomousInit() {
+	public void autonomousInit()
+	{
 		autonomousCommand = chooser.getSelected();
 
 		/*
@@ -88,12 +108,14 @@ public class Robot extends IterativeRobot{
 	 * This function is called periodically during autonomous
 	 */
 	@Override
-	public void autonomousPeriodic() {
+	public void autonomousPeriodic()
+	{
 		Scheduler.getInstance().run();
 	}
 
 	@Override
-	public void teleopInit() {
+	public void teleopInit()
+	{
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -106,7 +128,8 @@ public class Robot extends IterativeRobot{
 	 * This function is called periodically during operator control
 	 */
 	@Override
-	public void teleopPeriodic() {
+	public void teleopPeriodic()
+	{
 		Scheduler.getInstance().run();
 	}
 
@@ -114,7 +137,25 @@ public class Robot extends IterativeRobot{
 	 * This function is called periodically during test mode
 	 */
 	@Override
-	public void testPeriodic() {
+	public void testPeriodic()
+	{
 		LiveWindow.run();
+	}
+	
+	/**
+	 * Starts up USB cameras, starting capture on each one.
+	 */
+	private void initializeUsbCameras()
+	{
+		UsbCameraInfo infos[] = UsbCamera.enumerateUsbCameras();
+		usbCameras = new UsbCamera[infos.length];
+		for (int i = 0; i < usbCameras.length; i++)
+		{
+			usbCameras[i] = new UsbCamera("USB" + i, infos[i].path);
+			usbCameras[i].setResolution(RobotMap.usbCameraImageWidth, RobotMap.usbCameraImageHeight);
+			usbCameras[i].setFPS(RobotMap.usbCameraFrameRate);
+			System.out.println("Created USB camera " + i + ": " + usbCameras[i].getPath());
+			CameraServer.getInstance().startAutomaticCapture(usbCameras[i]);
+		}
 	}
 }
