@@ -40,8 +40,6 @@ public class Robot extends IterativeRobot
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
-	RobotDrive myRobot = new RobotDrive(new Victor(0), new Victor(1));
-
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.

@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class GearLift extends Subsystem
 {
-	SpeedController motor = new Victor(RobotMap.gearLiftChannel);
+	SpeedController motor;
 	
 	public GearLift()
 	{
@@ -27,7 +27,7 @@ public class GearLift extends Subsystem
 	public void initDefaultCommand()
 	{
 		// Set the default command for a subsystem here.
-		// setDefaultCommand(new MySpecialCommand());
+//		 setDefaultCommand(new MySpecialCommand());
 	}
 	
 	public void setSpeed(double speed)
