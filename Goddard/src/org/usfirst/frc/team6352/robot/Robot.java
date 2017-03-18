@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6352.robot.commands.DriveAutonomous;
 import org.usfirst.frc.team6352.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team6352.robot.subsystems.GearHolder;
 import org.usfirst.frc.team6352.robot.subsystems.GearLift;
 
 /**
@@ -30,6 +31,9 @@ public class Robot extends IterativeRobot
 	
 	// The gear lift subsystem:
 	public static final GearLift gearLift = new GearLift();
+	
+	//The gear holder subsystem:
+	public static final GearHolder gearHolder = new GearHolder();
 	
 	// The drive train:
 	public static final DriveTrain driveTrain = new DriveTrain();

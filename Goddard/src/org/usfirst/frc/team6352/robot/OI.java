@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6352.robot.commands.MoveGearLift;
+import org.usfirst.frc.team6352.robot.commands.OpenGearHolder;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -63,11 +64,15 @@ public class OI
 
 	Button gearLiftUpButton = new JoystickButton(gameController, gameControllerButtonA);
 	Button gearLiftDownButton = new JoystickButton(gameController, gameControllerButtonB);
+	
+	Button gearHolderOpenButton = new JoystickButton(gameController, gameControllerButtonX);
 
 	// SmartDashboard keys:
 	public final static String dashboardGearLiftSpeedUp = "Gear Lift Speed Up";
 	public final static String dashboardGearLiftSpeedDown = "Gear Lift Speed Down";
 	public final static String dashboardGearLiftTimeout = "Gear List Timeout (secs)";
+	public final static String dashboardGearHolderOpen = "Gear Holder Open";
+	public final static String dashboardGearHolderClosed = "Gear Holder Closed";
 
 	// Constructor:
 	public OI()
@@ -75,11 +80,16 @@ public class OI
 		// Bind buttons to commands:
 		gearLiftUpButton.whenPressed(new MoveGearLift(dashboardGearLiftSpeedUp, dashboardGearLiftTimeout));
 		gearLiftDownButton.whenPressed(new MoveGearLift(dashboardGearLiftSpeedDown, dashboardGearLiftTimeout));
+		
+		gearHolderOpenButton.whileHeld(new OpenGearHolder(dashboardGearHolderOpen));
 
 		// Put default values on SmartDashboard:
 		SmartDashboard.putNumber(dashboardGearLiftSpeedUp, 0.5);
 		SmartDashboard.putNumber(dashboardGearLiftSpeedDown, -0.4);
 		SmartDashboard.putNumber(dashboardGearLiftTimeout, 5.0);
+		SmartDashboard.putNumber(dashboardGearHolderOpen, 0);
+		SmartDashboard.putNumber(dashboardGearHolderClosed, .8);
+		
 	}
 
 }
