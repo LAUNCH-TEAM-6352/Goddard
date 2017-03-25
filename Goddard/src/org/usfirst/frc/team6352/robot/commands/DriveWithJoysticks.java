@@ -7,9 +7,9 @@ import org.usfirst.frc.team6352.robot.Robot;
 /**
  * Drives the robot using input from the joystick.
  */
-public class DriveWithJoystick extends Command
+public class DriveWithJoysticks extends Command
 {
-	public DriveWithJoystick()
+	public DriveWithJoysticks()
 	{
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.driveTrain);
@@ -25,7 +25,7 @@ public class DriveWithJoystick extends Command
 	@Override
 	protected void execute()
 	{
-		Robot.driveTrain.driveArcade(Robot.oi.leftStick);
+		Robot.driveTrain.driveTank(Robot.oi.leftStick, Robot.oi.rightStick);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

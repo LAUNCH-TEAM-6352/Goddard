@@ -44,8 +44,9 @@ public class OI
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 
-	// The joystick used for driving:
-	public Joystick stick = new Joystick(0);
+	// The joysticks used for driving:
+	public Joystick leftStick = new Joystick(0);
+	public Joystick rightStick = new Joystick(2);
 
 	// The Xbox controller used to activate various subsystems:
 	public XboxController gameController = new XboxController(1);
