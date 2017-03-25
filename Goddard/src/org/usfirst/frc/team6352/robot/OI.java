@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team6352.robot.commands.Climb;
 import org.usfirst.frc.team6352.robot.commands.MoveGearLift;
 import org.usfirst.frc.team6352.robot.commands.OpenGearHolder;
 
@@ -55,17 +56,20 @@ public class OI
 	public final static int gameControllerButtonA = 1;
 	public final static int gameControllerButtonB = 2;
 	public final static int gameControllerButtonX = 3;
-	public final static int gameControllerButtonBumperLeft = 4;
-	public final static int gameControllerButtonBumperRight = 5;
+	public final static int gameControllerButtonY = 4;
+	public final static int gameControllerButtonBumperLeft = 5;
+	public final static int gameControllerButtonBumperRight = 6;
 	public final static int gameControllerButtonBack = 7;
 	public final static int gameControllerButtonStart = 8;
 	public final static int gameControllerButtonStickLeft = 9;
 	public final static int gameControllerButtonStickRight = 10;
 
-	Button gearLiftUpButton = new JoystickButton(gameController, gameControllerButtonA);
-	Button gearLiftDownButton = new JoystickButton(gameController, gameControllerButtonB);
+	Button gearLiftUpButton = new JoystickButton(gameController, gameControllerButtonY);
+	Button gearLiftDownButton = new JoystickButton(gameController, gameControllerButtonA);
 	
 	Button gearHolderOpenButton = new JoystickButton(gameController, gameControllerButtonX);
+	
+	Button climbingWinchButton = new JoystickButton(gameController, gameControllerButtonB);
 
 	// SmartDashboard keys:
 	public final static String dashboardGearLiftSpeedUp = "Gear Lift Speed Up";
@@ -73,6 +77,7 @@ public class OI
 	public final static String dashboardGearLiftTimeout = "Gear List Timeout (secs)";
 	public final static String dashboardGearHolderOpen = "Gear Holder Open";
 	public final static String dashboardGearHolderClosed = "Gear Holder Closed";
+	public final static String dashboardClimbingWinchSpeed = "Climbing Speed";
 
 	// Constructor:
 	public OI()
@@ -81,6 +86,7 @@ public class OI
 		gearLiftUpButton.whenPressed(new MoveGearLift(dashboardGearLiftSpeedUp, dashboardGearLiftTimeout));
 		gearLiftDownButton.whenPressed(new MoveGearLift(dashboardGearLiftSpeedDown, dashboardGearLiftTimeout));
 		
+		climbingWinchButton.whileHeld(new Climb(dashboardClimbingWinchSpeed));
 		gearHolderOpenButton.whileHeld(new OpenGearHolder(dashboardGearHolderOpen));
 
 		// Put default values on SmartDashboard:
@@ -89,6 +95,7 @@ public class OI
 		SmartDashboard.putNumber(dashboardGearLiftTimeout, 5.0);
 		SmartDashboard.putNumber(dashboardGearHolderOpen, 0);
 		SmartDashboard.putNumber(dashboardGearHolderClosed, .8);
+		SmartDashboard.putNumber(dashboardClimbingWinchSpeed,-0.75);
 		
 	}
 

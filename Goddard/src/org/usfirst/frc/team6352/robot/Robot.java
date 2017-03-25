@@ -5,8 +5,6 @@ import edu.wpi.cscore.UsbCamera;
 import edu.wpi.cscore.UsbCameraInfo;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -14,6 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6352.robot.commands.DriveAutonomous;
+import org.usfirst.frc.team6352.robot.subsystems.ClimbingWinch;
 import org.usfirst.frc.team6352.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6352.robot.subsystems.GearHolder;
 import org.usfirst.frc.team6352.robot.subsystems.GearLift;
@@ -38,6 +37,9 @@ public class Robot extends IterativeRobot
 	// The drive train:
 	public static final DriveTrain driveTrain = new DriveTrain();
 	
+	// The climbing winch:
+	public static final ClimbingWinch climbingWinch = new ClimbingWinch();
+		
 	// The one instance of the OI:
 	public static OI oi;
 

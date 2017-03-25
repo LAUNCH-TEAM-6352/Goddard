@@ -31,6 +31,9 @@ public class RobotMap
 	//The PWM channel for the gear holder:
 	public final static int gearHolderChannel = 9;
 	
+	//The PWM channel for the climbing winch:
+	public final static int climbingWinchChannel = 3;
+		
 	// The following are for configuring the USB cameras.
 	// Network bandwidth from the robot to the driver station is limited by the FMS.
 	// When using multiple USB cameras, the image size and frame rate may
