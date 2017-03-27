@@ -43,6 +43,7 @@ public class Robot extends IterativeRobot
 	// The one instance of the OI:
 	public static OI oi;
 
+	// Used for choosing autonomous mode:
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -54,7 +55,11 @@ public class Robot extends IterativeRobot
 	public void robotInit()
 	{
 		oi = new OI();
-		chooser.addDefault("Default Auto", new DriveAutonomous());
+		
+		// Set up autonomous mode choices:
+		chooser.addDefault("Simple Auto", new DriveAutonomous());
+		chooser.addObject("No Auto", null);
+		
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		
@@ -94,16 +99,8 @@ public class Robot extends IterativeRobot
 	@Override
 	public void autonomousInit()
 	{
+		// Run the chosen autonomous command, if any:
 		autonomousCommand = chooser.getSelected();
-
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
-
-		// schedule the autonomous command (example)
 		if (autonomousCommand != null)
 			autonomousCommand.start();
 	}
@@ -156,9 +153,9 @@ public class Robot extends IterativeRobot
 		for (int i = 0; i < usbCameras.length; i++)
 		{
 			usbCameras[i] = new UsbCamera("USB" + i, infos[i].path);
-			usbCameras[i].setResolution(RobotMap.usbCameraImageWidth, RobotMap.usbCameraImageHeight);
-			usbCameras[i].setFPS(RobotMap.usbCameraFrameRate);
-			System.out.println("Created USB camera " + i + ": " + usbCameras[i].getPath());
+			boolean setRes = usbCameras[i].setResolution(RobotMap.usbCameraImageWidth, RobotMap.usbCameraImageHeight);
+			boolean setFps = usbCameras[i].setFPS(RobotMap.usbCameraFrameRate);
+			System.out.println("Created USB camera " + i + ": " + usbCameras[i].getPath() + ", setRes=" + setRes + ", setFps=" + setFps);
 			CameraServer.getInstance().startAutomaticCapture(usbCameras[i]);
 		}
 	}

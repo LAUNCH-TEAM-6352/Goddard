@@ -75,7 +75,7 @@ public class OI
 	// SmartDashboard keys:
 	public final static String dashboardGearLiftSpeedUp = "Gear Lift Speed Up";
 	public final static String dashboardGearLiftSpeedDown = "Gear Lift Speed Down";
-	public final static String dashboardGearLiftTimeout = "Gear List Timeout (secs)";
+	public final static String dashboardGearLiftTimeout = "Gear Lift Timeout (secs)";
 	public final static String dashboardGearHolderOpen = "Gear Holder Open";
 	public final static String dashboardGearHolderClosed = "Gear Holder Closed";
 	public final static String dashboardClimbingWinchSpeed = "Climbing Speed";
