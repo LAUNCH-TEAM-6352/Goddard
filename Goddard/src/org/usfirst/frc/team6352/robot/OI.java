@@ -1,14 +1,15 @@
 package org.usfirst.frc.team6352.robot;
 
+import org.usfirst.frc.team6352.robot.commands.Climb;
+import org.usfirst.frc.team6352.robot.commands.MoveGearLiftDown;
+import org.usfirst.frc.team6352.robot.commands.MoveGearLiftUp;
+import org.usfirst.frc.team6352.robot.commands.OpenGearHolder;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import org.usfirst.frc.team6352.robot.commands.Climb;
-import org.usfirst.frc.team6352.robot.commands.MoveGearLift;
-import org.usfirst.frc.team6352.robot.commands.OpenGearHolder;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -84,8 +85,8 @@ public class OI
 	public OI()
 	{
 		// Bind buttons to commands:
-		gearLiftUpButton.whenPressed(new MoveGearLift(dashboardGearLiftSpeedUp, dashboardGearLiftTimeout));
-		gearLiftDownButton.whenPressed(new MoveGearLift(dashboardGearLiftSpeedDown, dashboardGearLiftTimeout));
+		gearLiftUpButton.whenPressed(new MoveGearLiftUp());
+		gearLiftDownButton.whenPressed(new MoveGearLiftDown());
 		
 		climbingWinchButton.whileHeld(new Climb(dashboardClimbingWinchSpeed));
 		gearHolderOpenButton.whileHeld(new OpenGearHolder(dashboardGearHolderOpen));
@@ -96,8 +97,6 @@ public class OI
 		SmartDashboard.putNumber(dashboardGearLiftTimeout, 5.0);
 		SmartDashboard.putNumber(dashboardGearHolderOpen, 0);
 		SmartDashboard.putNumber(dashboardGearHolderClosed, .8);
-		SmartDashboard.putNumber(dashboardClimbingWinchSpeed,-0.75);
-		
+		SmartDashboard.putNumber(dashboardClimbingWinchSpeed, -0.75);
 	}
-
 }
