@@ -4,6 +4,7 @@ import org.usfirst.frc.team6352.robot.commands.Climb;
 import org.usfirst.frc.team6352.robot.commands.MoveGearLiftDown;
 import org.usfirst.frc.team6352.robot.commands.MoveGearLiftUp;
 import org.usfirst.frc.team6352.robot.commands.OpenGearHolder;
+import org.usfirst.frc.team6352.robot.commands.UnwindClimbingWinch;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
@@ -80,6 +81,7 @@ public class OI
 	public final static String dashboardGearHolderOpen = "Gear Holder Open";
 	public final static String dashboardGearHolderClosed = "Gear Holder Closed";
 	public final static String dashboardClimbingWinchSpeed = "Climbing Speed";
+	public final static String dashboardUnwindClimbingWinchSpeed = "Unwind Speed";
 
 	// Constructor:
 	public OI()
@@ -98,5 +100,9 @@ public class OI
 		SmartDashboard.putNumber(dashboardGearHolderOpen, 0);
 		SmartDashboard.putNumber(dashboardGearHolderClosed, .8);
 		SmartDashboard.putNumber(dashboardClimbingWinchSpeed, -0.75);
+		SmartDashboard.putNumber(dashboardUnwindClimbingWinchSpeed, +0.75);
+		
+		// THis adds a button to the SmartDashboard to unwind the climbing winch
+		SmartDashboard.putData("Unwind Climber", new UnwindClimbingWinch(dashboardUnwindClimbingWinchSpeed));
 	}
 }
