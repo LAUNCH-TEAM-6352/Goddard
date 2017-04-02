@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6352.robot.Robot;
 
 /**
- * Drives the robot using input from the joystick.
+ * Drives the robot Arcade style using the input from a single joystick.
  */
 public class DriveWithJoystick extends Command
 {

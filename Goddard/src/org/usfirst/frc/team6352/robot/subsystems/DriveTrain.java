@@ -42,14 +42,33 @@ public class DriveTrain extends Subsystem
 		setDefaultCommand(new DriveWithJoysticks());
 	}
 	
+	/**
+	 * Arcade style drive using input from a single joystick.
+	 * @param stick
+	 */
 	public void driveArcade(Joystick stick)
 	{
 		drive.arcadeDrive(stick);
 	}
 	
+	/**
+	 * Tank style drive sing input from two joysticks, left and right.
+	 * @param leftStick
+	 * @param rightStick
+	 */
 	public void driveTank(Joystick leftStick, Joystick rightStick)
 	{
 		drive.tankDrive(leftStick, rightStick);
+	}
+	
+	/**
+	 * Drives with a specified speed and curve.
+	 * @param speed Between -1.0 and 1.0: >0 is forward while <0 is reverse.
+	 * @param curve Between -1.0 and 1.0: >0 is turn right while <0 is turn left.
+	 */
+	public void drive(double speed, double curve)
+	{
+		drive.drive(speed,  curve);
 	}
 	
 }

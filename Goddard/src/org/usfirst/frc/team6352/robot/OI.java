@@ -82,6 +82,9 @@ public class OI
 	public final static String dashboardGearHolderClosed = "Gear Holder Closed";
 	public final static String dashboardClimbingWinchSpeed = "Climbing Speed";
 	public final static String dashboardUnwindClimbingWinchSpeed = "Unwind Speed";
+	public final static String dashboardSimpleAutoDriveSpeed = "Simple Auto Speed";
+	public final static String dashboardSimpleAutoDriveCurve = "Simple Auto Curve";
+	public final static String dashboardSimpleAutoDriveTimeout = "Simple Auto Timeout";
 
 	// Constructor:
 	public OI()
@@ -101,8 +104,11 @@ public class OI
 		SmartDashboard.putNumber(dashboardGearHolderClosed, .8); // Updated for the new servo
 		SmartDashboard.putNumber(dashboardClimbingWinchSpeed, -0.75);
 		SmartDashboard.putNumber(dashboardUnwindClimbingWinchSpeed, +0.75);
+		SmartDashboard.putNumber(dashboardSimpleAutoDriveSpeed, +0.5);
+		SmartDashboard.putNumber(dashboardSimpleAutoDriveCurve, 0.0);
+		SmartDashboard.putNumber(dashboardSimpleAutoDriveTimeout, 5.0);
 		
-		// THis adds a button to the SmartDashboard to unwind the climbing winch
+		// This adds a button to the SmartDashboard to unwind the climbing winch
 		SmartDashboard.putData("Unwind Climber", new UnwindClimbingWinch(dashboardUnwindClimbingWinchSpeed));
 	}
 }
