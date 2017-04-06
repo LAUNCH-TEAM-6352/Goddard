@@ -19,7 +19,7 @@ public class RobotMap
 	// public static int rangefinderModule = 1;
 
 	// The following indicates if we are running the competition robot:
-	public static final boolean isCompetitionRobot = false;
+	public static final boolean isCompetitionRobot = true;
 
 	// The PWM channels for the drive system:
 	public static final int leftDriveChannel = 0;
