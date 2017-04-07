@@ -58,6 +58,8 @@ public class Robot extends IterativeRobot
 		
 		// Set up autonomous mode choices:
 		chooser.addDefault("Simple Auto", new DriveAutonomous(OI.dashboardSimpleAutoDriveSpeed, OI.dashboardSimpleAutoDriveCurve, OI.dashboardSimpleAutoDriveTimeout));
+		chooser.addObject("Left Field Auto", new LeftFieldAuto());
+		chooser.addObject("Right Field Auto", new RightFieldAuto());
 		chooser.addObject("No Auto", null);
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
