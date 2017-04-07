@@ -106,7 +106,7 @@ public class OI
 		SmartDashboard.putNumber(dashboardUnwindClimbingWinchSpeed, +0.75);
 		SmartDashboard.putNumber(dashboardSimpleAutoDriveSpeed, -0.5);
 		SmartDashboard.putNumber(dashboardSimpleAutoDriveCurve, 0.0);
-		SmartDashboard.putNumber(dashboardSimpleAutoDriveTimeout, 2.0);
+		SmartDashboard.putNumber(dashboardSimpleAutoDriveTimeout, 1.5);
 		
 		// This adds a button to the SmartDashboard to unwind the climbing winch
 		SmartDashboard.putData("Unwind Climber", new UnwindClimbingWinch(dashboardUnwindClimbingWinchSpeed));
