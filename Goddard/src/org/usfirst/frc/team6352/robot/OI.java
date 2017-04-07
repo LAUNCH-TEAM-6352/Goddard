@@ -99,10 +99,10 @@ public class OI
 		// Put default values on SmartDashboard:
 		SmartDashboard.putNumber(dashboardGearLiftSpeedUp, 0.5);
 		SmartDashboard.putNumber(dashboardGearLiftSpeedDown, -0.4);
-		SmartDashboard.putNumber(dashboardGearLiftTimeout, 5.0);
-		SmartDashboard.putNumber(dashboardGearHolderOpen, .35); // Do NOT set to any amount less than .4 because it will bind the new servo
-		SmartDashboard.putNumber(dashboardGearHolderClosed, .9); // Updated for the new servo
-		SmartDashboard.putNumber(dashboardClimbingWinchSpeed, -0.75);
+		SmartDashboard.putNumber(dashboardGearLiftTimeout, 2.0);
+		SmartDashboard.putNumber(dashboardGearHolderOpen, .005); 
+		SmartDashboard.putNumber(dashboardGearHolderClosed, .45);
+		SmartDashboard.putNumber(dashboardClimbingWinchSpeed, -0.9);
 		SmartDashboard.putNumber(dashboardUnwindClimbingWinchSpeed, +0.75);
 		SmartDashboard.putNumber(dashboardSimpleAutoDriveSpeed, -0.5);
 		SmartDashboard.putNumber(dashboardSimpleAutoDriveCurve, 0.0);
