@@ -68,7 +68,7 @@ public class DriveTrain extends Subsystem
 	 */
 	public void driveCaution(Joystick leftStick, Joystick rightStick)
 	{
-		 drive.setLeftRightMotorOutputs(leftStick.getY() + rightStick.getX(), leftStick.getY() - rightStick.getX());
+		 drive.setLeftRightMotorOutputs(leftStick.getY() - rightStick.getX(), leftStick.getY() + rightStick.getX());
 	}
 	
 	/**
