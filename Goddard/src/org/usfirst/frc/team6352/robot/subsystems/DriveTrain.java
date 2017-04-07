@@ -52,13 +52,23 @@ public class DriveTrain extends Subsystem
 	}
 	
 	/**
-	 * Tank style drive sing input from two joysticks, left and right.
+	 * Tank style drive using input from two joysticks, left and right.
 	 * @param leftStick
 	 * @param rightStick
 	 */
 	public void driveTank(Joystick leftStick, Joystick rightStick)
 	{
 		drive.tankDrive(leftStick, rightStick);
+	}
+	
+	/**
+	 * Team Caution style drive using input from two joysticks, left and right.
+	 * @param leftStick
+	 * @param rightStick
+	 */
+	public void driveCaution(Joystick leftStick, Joystick rightStick)
+	{
+		 drive.setLeftRightMotorOutputs(leftStick.getY() + rightStick.getX(), leftStick.getY() - rightStick.getX());
 	}
 	
 	/**

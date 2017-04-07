@@ -25,7 +25,8 @@ public class DriveWithJoysticks extends Command
 	@Override
 	protected void execute()
 	{
-		Robot.driveTrain.driveTank(Robot.oi.leftStick, Robot.oi.rightStick);
+		//Robot.driveTrain.driveTank(Robot.oi.leftStick, Robot.oi.rightStick);
+		Robot.driveTrain.driveCaution(Robot.oi.leftStick, Robot.oi.rightStick);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
