@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6352.robot.commands.DriveAutonomous;
+import org.usfirst.frc.team6352.robot.commands.LeftFieldAuto;
+import org.usfirst.frc.team6352.robot.commands.RightFieldAuto;
 import org.usfirst.frc.team6352.robot.subsystems.ClimbingWinch;
 import org.usfirst.frc.team6352.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6352.robot.subsystems.GearHolder;
