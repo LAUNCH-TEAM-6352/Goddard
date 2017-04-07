@@ -100,7 +100,7 @@ public class OI
 		SmartDashboard.putNumber(dashboardGearLiftSpeedUp, 0.5);
 		SmartDashboard.putNumber(dashboardGearLiftSpeedDown, -0.4);
 		SmartDashboard.putNumber(dashboardGearLiftTimeout, 2.0);
-		SmartDashboard.putNumber(dashboardGearHolderOpen, .005); 
+		SmartDashboard.putNumber(dashboardGearHolderOpen, .0051); 
 		SmartDashboard.putNumber(dashboardGearHolderClosed, .45);
 		SmartDashboard.putNumber(dashboardClimbingWinchSpeed, -0.9);
 		SmartDashboard.putNumber(dashboardUnwindClimbingWinchSpeed, +0.75);
