@@ -85,6 +85,12 @@ public class OI
 	public final static String dashboardSimpleAutoDriveSpeed = "Simple Auto Speed";
 	public final static String dashboardSimpleAutoDriveCurve = "Simple Auto Curve";
 	public final static String dashboardSimpleAutoDriveTimeout = "Simple Auto Timeout";
+	public final static String dashboardAutoFwdSpeed = "Auto Fwd Speed";
+	public final static String dashboardAutoTurnFwdSpeed = "Auto Turn Fwd Speed";
+	public final static String dashboardAutoTurnRevSpeed = "Auto Turn Rev Speed";
+	public final static String dashboardAutoFwdTimeout = "Auto Fwd Timeout";
+	public final static String dashboardAutoTurnTimeout = "Auto Turn Timeout";
+	
 
 	// Constructor:
 	public OI()
@@ -107,6 +113,11 @@ public class OI
 		SmartDashboard.putNumber(dashboardSimpleAutoDriveSpeed, -0.5);
 		SmartDashboard.putNumber(dashboardSimpleAutoDriveCurve, 0.0);
 		SmartDashboard.putNumber(dashboardSimpleAutoDriveTimeout, 1.5);
+		SmartDashboard.putNumber(dashboardAutoFwdSpeed, -0.5);
+		SmartDashboard.putNumber(dashboardAutoTurnFwdSpeed, -0.5);
+		SmartDashboard.putNumber(dashboardAutoTurnRevSpeed, 0.5);
+		SmartDashboard.putNumber(dashboardAutoFwdTimeout, 1.5);
+		SmartDashboard.putNumber(dashboardAutoTurnTimeout, 0.5);
 		
 		// This adds a button to the SmartDashboard to unwind the climbing winch
 		SmartDashboard.putData("Unwind Climber", new UnwindClimbingWinch(dashboardUnwindClimbingWinchSpeed));
