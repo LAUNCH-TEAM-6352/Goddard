@@ -118,7 +118,7 @@ public class OI
 		SmartDashboard.putNumber(dashboardAutoTurnFwdSpeed, -0.5);
 		SmartDashboard.putNumber(dashboardAutoTurnRevSpeed, 0.5);
 		SmartDashboard.putNumber(dashboardAutoFwdTimeout, 1.5);
-		SmartDashboard.putNumber(dashboardAutoTurnTimeout, 0.59);
+		SmartDashboard.putNumber(dashboardAutoTurnTimeout, 0.52);
 		SmartDashboard.putNumber(dashboardAutoFwdGearPegSpeed, -0.25);
 		SmartDashboard.putNumber(dashboardAutoFwdGearPegTimeout, 3);
 		
