@@ -106,7 +106,7 @@ public class OI
 		// Put default values on SmartDashboard:
 		SmartDashboard.putNumber(dashboardGearLiftSpeedUp, 0.5);
 		SmartDashboard.putNumber(dashboardGearLiftSpeedDown, -0.4);
-		SmartDashboard.putNumber(dashboardGearLiftTimeout, 2.0);
+		SmartDashboard.putNumber(dashboardGearLiftTimeout, 1.5);
 		SmartDashboard.putNumber(dashboardGearHolderOpen, .0051); 
 		SmartDashboard.putNumber(dashboardGearHolderClosed, .45);
 		SmartDashboard.putNumber(dashboardClimbingWinchSpeed, -0.9);
@@ -117,10 +117,10 @@ public class OI
 		SmartDashboard.putNumber(dashboardAutoFwdSpeed, -0.5);
 		SmartDashboard.putNumber(dashboardAutoTurnFwdSpeed, -0.5);
 		SmartDashboard.putNumber(dashboardAutoTurnRevSpeed, 0.5);
-		SmartDashboard.putNumber(dashboardAutoFwdTimeout, 1.5);
-		SmartDashboard.putNumber(dashboardAutoTurnTimeout, 0.52);
+		SmartDashboard.putNumber(dashboardAutoFwdTimeout, 1.4);
+		SmartDashboard.putNumber(dashboardAutoTurnTimeout, 0.575);
 		SmartDashboard.putNumber(dashboardAutoFwdGearPegSpeed, -0.25);
-		SmartDashboard.putNumber(dashboardAutoFwdGearPegTimeout, 3);
+		SmartDashboard.putNumber(dashboardAutoFwdGearPegTimeout, 2.9);
 		
 		// This adds a button to the SmartDashboard to unwind the climbing winch
 		SmartDashboard.putData("Unwind Climber", new UnwindClimbingWinch(dashboardUnwindClimbingWinchSpeed));
