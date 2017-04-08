@@ -90,7 +90,8 @@ public class OI
 	public final static String dashboardAutoTurnRevSpeed = "Auto Turn Rev Speed";
 	public final static String dashboardAutoFwdTimeout = "Auto Fwd Timeout";
 	public final static String dashboardAutoTurnTimeout = "Auto Turn Timeout";
-	
+	public final static String dashboardAutoFwdGearPegSpeed = "Auto Fwd Gear Peg Speed";
+	public final static String dashboardAutoFwdGearPegTimeout = "Auto Fwd Gear Peg Timeout";
 
 	// Constructor:
 	public OI()
@@ -118,6 +119,8 @@ public class OI
 		SmartDashboard.putNumber(dashboardAutoTurnRevSpeed, 0.5);
 		SmartDashboard.putNumber(dashboardAutoFwdTimeout, 1.5);
 		SmartDashboard.putNumber(dashboardAutoTurnTimeout, 0.59);
+		SmartDashboard.putNumber(dashboardAutoFwdGearPegSpeed, -0.25);
+		SmartDashboard.putNumber(dashboardAutoFwdGearPegTimeout, 3);
 		
 		// This adds a button to the SmartDashboard to unwind the climbing winch
 		SmartDashboard.putData("Unwind Climber", new UnwindClimbingWinch(dashboardUnwindClimbingWinchSpeed));

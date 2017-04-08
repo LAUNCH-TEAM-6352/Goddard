@@ -12,8 +12,10 @@ public class RightFieldAuto extends CommandGroup {
     public RightFieldAuto() 
     {
     
+    	addSequential(new MoveGearLiftDown());
     	addSequential(new DriveAutonomous2(OI.dashboardAutoFwdSpeed, OI.dashboardAutoFwdSpeed, OI.dashboardAutoFwdTimeout));
     	addSequential(new DriveAutonomous2(OI.dashboardAutoTurnRevSpeed, OI.dashboardAutoTurnFwdSpeed, OI.dashboardAutoTurnTimeout));
+    	addSequential(new DriveAutonomous2(OI.dashboardAutoFwdGearPegSpeed, OI.dashboardAutoFwdGearPegSpeed, OI.dashboardAutoFwdGearPegTimeout));
     	
     }
 }
