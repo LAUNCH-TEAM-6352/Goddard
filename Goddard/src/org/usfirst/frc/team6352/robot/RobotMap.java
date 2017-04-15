@@ -33,6 +33,9 @@ public class RobotMap
 	
 	//The PWM channel for the climbing winch:
 	public final static int climbingWinchChannel = 3;
+	
+	// This is an analog input channel for reading the gear lift encoder:
+	public final static int gearLiftEncoderChannel = 0;
 		
 	// The following are for configuring the USB cameras.
 	// Network bandwidth from the robot to the driver station is limited by the FMS.

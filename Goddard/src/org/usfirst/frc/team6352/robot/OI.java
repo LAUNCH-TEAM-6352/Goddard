@@ -85,6 +85,7 @@ public class OI
 	public final static String dashboardSimpleAutoDriveSpeed = "Simple Auto Speed";
 	public final static String dashboardSimpleAutoDriveCurve = "Simple Auto Curve";
 	public final static String dashboardSimpleAutoDriveTimeout = "Simple Auto Timeout";
+	public final static String dashboardGearLiftEncoder = "Gear Lift Encoder";
 
 	// Constructor:
 	public OI()

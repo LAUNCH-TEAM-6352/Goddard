@@ -2,6 +2,8 @@ package org.usfirst.frc.team6352.robot.subsystems;
 
 import org.usfirst.frc.team6352.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.AnalogTrigger;
+import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Victor;
@@ -14,11 +16,18 @@ public class GearLift extends Subsystem
 {
 	SpeedController motor;
 	
+	AnalogTrigger encoder;
+	Counter counter;
+	
 	public GearLift()
 	{
 		motor = RobotMap.isCompetitionRobot
 			? new Spark(RobotMap.gearLiftChannel)
 			: new Victor(RobotMap.gearLiftChannel);
+			
+		encoder = new AnalogTrigger(RobotMap.gearLiftEncoderChannel);
+		encoder.setLimitsVoltage(3.5, 5.0);
+		counter = new Counter(encoder);
 	}
 			
 	// Put methods for controlling this subsystem
@@ -28,6 +37,16 @@ public class GearLift extends Subsystem
 	{
 		// Set the default command for a subsystem here.
 //		 setDefaultCommand(new MySpecialCommand());
+	}
+	
+	public void resetEncoderCounter()
+	{
+		counter.reset();
+	}
+	
+	public int getEncoderCounter()
+	{
+		return counter.get();
 	}
 	
 	public void setSpeed(double speed)

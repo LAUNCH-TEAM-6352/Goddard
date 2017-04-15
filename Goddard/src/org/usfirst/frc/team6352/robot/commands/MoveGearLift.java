@@ -3,6 +3,7 @@ package org.usfirst.frc.team6352.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team6352.robot.OI;
 import org.usfirst.frc.team6352.robot.Robot;
 
 /**
@@ -64,6 +65,7 @@ public class MoveGearLift extends Command
 		}
 		
 		setTimeout(timeout);
+		Robot.gearLift.resetEncoderCounter();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -71,6 +73,7 @@ public class MoveGearLift extends Command
 	protected void execute()
 	{
 		Robot.gearLift.setSpeed(speed);
+		SmartDashboard.putNumber(OI.dashboardGearLiftEncoder, Robot.gearLift.getEncoderCounter());
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
