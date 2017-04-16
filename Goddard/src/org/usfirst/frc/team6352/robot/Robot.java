@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6352.robot.commands.DriveAutonomous;
+import org.usfirst.frc.team6352.robot.commands.LeftFieldAuto;
+import org.usfirst.frc.team6352.robot.commands.RightFieldAuto;
 import org.usfirst.frc.team6352.robot.subsystems.ClimbingWinch;
 import org.usfirst.frc.team6352.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6352.robot.subsystems.GearHolder;
@@ -58,6 +60,8 @@ public class Robot extends IterativeRobot
 		
 		// Set up autonomous mode choices:
 		chooser.addDefault("Simple Auto", new DriveAutonomous(OI.dashboardSimpleAutoDriveSpeed, OI.dashboardSimpleAutoDriveCurve, OI.dashboardSimpleAutoDriveTimeout));
+		chooser.addObject("Left Field Auto", new LeftFieldAuto());
+		chooser.addObject("Right Field Auto", new RightFieldAuto());
 		chooser.addObject("No Auto", null);
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());

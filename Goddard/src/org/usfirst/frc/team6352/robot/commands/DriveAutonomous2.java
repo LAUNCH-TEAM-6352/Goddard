@@ -8,49 +8,49 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  * A command that drives the robot in the autonomous period.
  */
-public class DriveAutonomous extends Command
+public class DriveAutonomous2 extends Command
 {
-	private String speedKey = null;
-	private String curveKey = null;
+	private String leftKey = null;
+	private String rightKey = null;
 	private String timeoutKey = null;
 	
-	private double speed;
-	private double curve;
+	private double left;
+	private double right;
 	private double timeout;
 	
 	/**
 	 * Default constructor is private to force outside use of other constructors.
 	 */
-	private DriveAutonomous()
+	private DriveAutonomous2()
 	{
 		requires(Robot.driveTrain);
 	}
 	
 	/**
 	 * Constructs an instance that uses values from the SmartDashboard.
-	 * @param speedKey
-	 * @param curveKey
+	 * @param leftKey
+	 * @param rightKey
 	 * @param timeoutKey
 	 */
-	public DriveAutonomous(String speedKey, String curveKey, String timeoutKey)
+	public DriveAutonomous2(String leftKey, String rightKey, String timeoutKey)
 	{
 		this();
-		this.speedKey = speedKey;
-		this.curveKey = curveKey;
+		this.leftKey = leftKey;
+		this.rightKey = rightKey;
 		this.timeoutKey = timeoutKey;
 	}
 
 	/**
 	 * Constructs an instance that uses fixed values.
-	 * @param speed
-	 * @param curve
+	 * @param left
+	 * @param right
 	 * @param timeout
 	 */
-	public DriveAutonomous(double speed, double curve, double timeout)
+	public DriveAutonomous2(double left, double right, double timeout)
 	{
 		this();
-		this.speed = speed;
-		this.curve = curve;
+		this.left = left;
+		this.right = right;
 		this.timeout = timeout;
 	}
 
@@ -59,11 +59,11 @@ public class DriveAutonomous extends Command
 	protected void initialize()
 	{
 		System.out.println("Hello from DriveAutonomous.initialize()!");
-		if (speedKey != null)
+		if (leftKey != null)
 		{
 			// Get values from SmartDashboard:
-			speed = SmartDashboard.getNumber(speedKey, 0.5);
-			curve = SmartDashboard.getNumber(curveKey, 0.0);
+			left = SmartDashboard.getNumber(leftKey, 0.5);
+			right = SmartDashboard.getNumber(rightKey, 0.0);
 			timeout = SmartDashboard.getNumber(timeoutKey, 5.0);
 		}
 		
@@ -74,7 +74,7 @@ public class DriveAutonomous extends Command
 	@Override
 	protected void execute()
 	{
-		Robot.driveTrain.drive(speed, curve);
+		Robot.driveTrain.setLeftRightMotorOutputs(left, right);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
